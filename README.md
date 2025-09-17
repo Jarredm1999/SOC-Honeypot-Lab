@@ -3,16 +3,18 @@
 ![final-diagram](./pictures/ld-final-diagram.png)
 
 ## Summary
-I designed and deployed a honeypot in Microsoft Azure to capture and analyze malicious login attmeps. Using a Windows 11 virtual machine with permissive NSG(Network Securtiy Group) rules, I intentionally exposed the system to brute force traffic. Using the AMA(Azure Monitoring Agent) data collection rule, Windows Event Viewer logs were collected and forwareded to a centralized Log Analytics Workspace and connected to Azure Sentinel(Microsoft Defender). 
 
-To enhance visibility, I imported a GeoIp watchlist into Sentinel to enrich attacker IP addresses with geographic data. Using KQL queries, I correlated login attempts to their originating regions and built an interactive attack map workbook. I then used this workbook to visualize threat activity in real time. 
+I designed and deployed a honeypot in Microsoft Azure to capture and analyze malicious login attmeps. Using a Windows 11 virtual machine with permissive NSG(Network Securtiy Group) rules, I intentionally exposed the system to brute force traffic. Using the AMA(Azure Monitoring Agent) data collection rule, Windows Event Viewer logs were collected and forwareded to a centralized Log Analytics Workspace and connected to Azure Sentinel(Microsoft Defender).
 
-Skill demonstrated: Cloud security monitoring, log management, SIEM configuration, KQL querying, incidient analysis, and Azure security services. 
+To enhance visibility, I imported a GeoIp watchlist into Sentinel to enrich attacker IP addresses with geographic data. Using KQL queries, I correlated login attempts to their originating regions and built an interactive attack map workbook. I then used this workbook to visualize threat activity in real time.
+
+Skill demonstrated: Cloud security monitoring, log management, SIEM configuration, KQL querying, incidient analysis, and Azure security services.
 
 ### Part 1 - Create Honeypot via Azure Virutal Machine
+
 - Deployed a Windows 11 virtual machine.
 - Configured Network Security Group(NSG) rule that allows any inbound traffic from destination any ip.
-  <img alt="idk" width=50% src="./pictures/nsg-rule.png"/>
+  <img alt="idk" src="./pictures/nsg-rule-zoom.png"/>
 - Connected to the VM via Remote Desktop Protocol(RDP) and disabled the Windows firewall across domain, private, and public profiles.
   [Insert Pic]
 - Configuring the Network Security Group to allow all traffic and disabling the Windows virtual machine is intentional for honeypot purposes.
@@ -20,6 +22,7 @@ Skill demonstrated: Cloud security monitoring, log management, SIEM configuratio
   [Insert Pic]
 
 ### Part 2 - Log Forwarding to Microsoft Sentinel(Microsoft Defender)
+
 - Created a Log Analytics Workspace.
 - Deployed a Sentinel instance and connect it to the Log Analytics workspace that was just created.
 - Created and configured the Windows Security Events via AMA connector.
@@ -30,6 +33,7 @@ Skill demonstrated: Cloud security monitoring, log management, SIEM configuratio
   [Insert pic]
 
 ### Part 3 - Log Enrichment and Finiding Location Data
+
 - The logs that are available in the Log Analytics Workspace do not contain location data, only IP address. We can use the IP address to derive the location data.
   [Insert pic]
 - Imported a GeoIP csv file as a Sentinel Watchlist to map IP addresses to physical locations.
@@ -37,23 +41,10 @@ Skill demonstrated: Cloud security monitoring, log management, SIEM configuratio
   [Insert pic]
 
 ### Part 4 - Create Attack Map
+
 - Built a custom Sentinel Workbook to visualize failed login attempts on a geographic attack map. I used this KQL query as my data source.
   [Insert pic]
 - After leaving my WindowsVM on overnight, over 25K+ failed login attempts were recorded. This is what the map looked like.
   [Insert pic]
 - From the visualization above we can see that the most attacks originated from.
 - This is the final lab diagram of what we built during this project.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
