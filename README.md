@@ -1,6 +1,6 @@
 # Azure Honeypot + Attack Map Project
 
-![plot](./ld-final-diagram.png)
+![plot](./pictures/ld-final-diagram.png)
 
 Summary - I designed and deployed a honeypot in Microsoft Azure to capture and analyze malicious login attmeps. Using a Windows 11 virtual machine with permissive NSG(Network Securtiy Group) rules, I intentionally exposed the system to brute force traffic. Using the AMA(Azure Monitoring Agent) data collection rule, Windows Event Viewer logs were collected and forwareded to a centralized Log Analytics Workspace and connected to Azure Sentinel(Microsoft Defender). 
 
