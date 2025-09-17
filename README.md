@@ -1,8 +1,9 @@
 # Azure Honeypot + Attack Map Project
 
-![plot](./pictures/ld-final-diagram.png)
+![final-diagram](./pictures/ld-final-diagram.png)
 
-Summary - I designed and deployed a honeypot in Microsoft Azure to capture and analyze malicious login attmeps. Using a Windows 11 virtual machine with permissive NSG(Network Securtiy Group) rules, I intentionally exposed the system to brute force traffic. Using the AMA(Azure Monitoring Agent) data collection rule, Windows Event Viewer logs were collected and forwareded to a centralized Log Analytics Workspace and connected to Azure Sentinel(Microsoft Defender). 
+## Summary
+I designed and deployed a honeypot in Microsoft Azure to capture and analyze malicious login attmeps. Using a Windows 11 virtual machine with permissive NSG(Network Securtiy Group) rules, I intentionally exposed the system to brute force traffic. Using the AMA(Azure Monitoring Agent) data collection rule, Windows Event Viewer logs were collected and forwareded to a centralized Log Analytics Workspace and connected to Azure Sentinel(Microsoft Defender). 
 
 To enhance visibility, I imported a GeoIp watchlist into Sentinel to enrich attacker IP addresses with geographic data. Using KQL queries, I correlated login attempts to their originating regions and built an interactive attack map workbook. I then used this workbook to visualize threat activity in real time. 
 
@@ -11,7 +12,7 @@ Skill demonstrated: Cloud security monitoring, log management, SIEM configuratio
 ### Part 1 - Create Honeypot via Azure Virutal Machine
 - Deployed a Windows 11 virtual machine.
 - Configured Network Security Group(NSG) rule that allows any inbound traffic from destination any ip.
-  [Insert Pic]
+  <img alt="idk" width=50% src="./pictures/nsg-rule.png"/>
 - Connected to the VM via Remote Desktop Protocol(RDP) and disabled the Windows firewall across domain, private, and public profiles.
   [Insert Pic]
 - Configuring the Network Security Group to allow all traffic and disabling the Windows virtual machine is intentional for honeypot purposes.
