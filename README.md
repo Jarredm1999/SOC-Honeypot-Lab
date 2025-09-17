@@ -14,9 +14,9 @@ Skill demonstrated: Cloud security monitoring, log management, SIEM configuratio
 
 - Deployed a Windows 11 virtual machine.
 - Configured Network Security Group(NSG) rule that allows any inbound traffic from destination any ip.
-  <img alt="idk" src="./pictures/nsg-rule-zoom.png"/>
+  ![final-diagram](./pictures/nsg-rule-zoom.png)
 - Connected to the VM via Remote Desktop Protocol(RDP) and disabled the Windows firewall across domain, private, and public profiles.
-  [Insert Pic]
+  <img alt="idk" width=50% src="./pictures/vm-firewall.png"/>
 - Configuring the Network Security Group to allow all traffic and disabling the Windows virtual machine is intentional for honeypot purposes.
 - The overall lab diagram would look something like this:
   [Insert Pic]
