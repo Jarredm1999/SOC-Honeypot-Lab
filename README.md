@@ -34,7 +34,7 @@ Skill demonstrated: Cloud security monitoring, log management, SIEM configuratio
 - To check if the pipeline is working, I queried for logs in the Logs Analytics Workspace using this query.
   <img alt="initial-query" width=50% src="./pictures/initial-log-query.png"/>
 
-### Part 3 - Log Enrichment and Finiding Location Data
+### Part 3 - Log Enrichment and Finding Location Data
 
 - The logs that are available in the Log Analytics Workspace do not contain location data, only IP address. We can use the IP address to derive the location data.
   ![initial-logs](./pictures/initial-logs.png)
